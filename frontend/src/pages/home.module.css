@@ -1,0 +1,98 @@
+@import url('../components/RootLayout.css');
+  
+.homeContainer {
+ 
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  top: -170px;
+  left: 0px;
+}
+
+.welcomeSection {
+  text-align: center;
+}
+
+.welcomeTitle {
+  font-size: 2.5em;
+  color: #333;
+  margin-top: 20px;
+  left: -200px;
+}
+
+.welcomeText {
+  font-size: 1em;
+  margin-top: 10px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.quickLinks {
+  margin-top: 0px;
+  text-align: left;
+  position: relative;
+  top: 50px;
+}
+
+.quickLinksTitle {
+  font-size: 1.8em;
+  margin-bottom: -50px;
+  text-align: left;
+  position: relative;
+  top: -15px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.linkBox {
+  padding: 15px 30px;
+  background-color: #ff6361;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.linkBox:hover {
+  background-color: #ff4b3a;
+}
+
+.latestNews {
+  margin-top: 0px;
+  padding-top: 150px;
+}
+
+.latestNewsTitle {
+  font-size: 1.8em;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.latestNewsList {
+  list-style-type: disc;
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+
+.latestNewsItem {
+  margin-bottom: 8px;
+  position: relative;
+  top: -80px;
+}
+
+
+@media screen and (max-width: 10px) {
+  body {
+    zoom: 0.5;  /* Reduce zoom on smaller screens */
+  }
+}
+
+/*@media screen {
+  //max-
+}*/

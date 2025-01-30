@@ -1,0 +1,112 @@
+html, body {
+  font-family: Arial, sans-serif;
+  margin: 0;            /* Removes any default margin */
+  padding: 50px;           /* Removes any default padding */
+  padding-left: 20px;
+  height: 100%;         /* Ensures that the body takes up 100% of the viewport height */
+  width: 100%;          /* Ensures that the body takes up 100% of the viewport width */
+  background-color: #e5d9d0;
+  
+}
+
+.container {
+  max-width: 800px;
+  min-height: 100vh;    /* Ensures container takes full viewport height */
+  width: 30%;          /* Ensures container takes full width */
+  display: flex;        /* Flexbox for easy alignment */
+  justify-content: center;  /* Centers content horizontally */
+  align-items: center;  /* Centers content vertically */
+}
+
+
+.full-page {
+  height: 100vh;   /* 100% of the viewport height */
+  width: 20vw;    /* 100% of the viewport width */
+}
+.header {
+  position: relative;
+  top: 170px;
+  left: -100px;
+  justify-content: space-between;
+  
+}
+.header h1{
+  position: relative;
+  left: 580px;
+  justify-content: space-between;
+  
+}
+
+.logo-image {
+  width: 10%;
+  position: relative;
+  top: -250px;
+  left: 250px;
+}
+
+.title {
+  position: relative;
+  top: -400px;
+  left: 750px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color: red; 
+  animation: sparkle 1s infinite alternate;
+}
+.nav-center {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -210px;
+  left: -10px;
+}
+
+.nav-center a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 24px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  position: relative;
+  white-space: nowrap;
+  overflow: visible;
+  left:100px;
+}
+
+.nav-center a.active {
+  border-bottom: 3px solid #ff6361;
+  padding-bottom: 5px;
+}
+
+@keyframes sparkle {
+  0% {
+    text-shadow: 0 0 10px rgb(86, 3, 3), 0 0 20px rgb(132, 132, 4), 0 0 30px rgb(120, 80, 7), 0 0 40px rgb(173, 5, 5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgb(159, 159, 4), 0 0 30px rgb(182, 120, 5), 0 0 40px rgb(118, 35, 35), 0 0 50px rgb(136, 136, 54);
+  }
+}
+@media (max-width: 00px) {
+  .container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 20px;
+  }
+}
+
+@media (min-width: 100px) {
+  .container {
+    flex-direction: row; /* Arrange items horizontally on larger screens */
+  }
+}
+@media screen and (max-width: 10px) {
+  body {
+    zoom: 0.5;  /* Reduce zoom on smaller screens */
+  }
+}
+
+
+html, body {
+  overflow-x: hidden; /* Prevent scrollbars */
+  overflow-y: visible ;   /* Prevents horizontal scrolling if elements exceed width */
+}

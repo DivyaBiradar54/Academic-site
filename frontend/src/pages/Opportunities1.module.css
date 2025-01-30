@@ -1,0 +1,155 @@
+@import url('../components/RootLayout.css');
+/* Opportunities1.module.css */
+
+/* General content wrapper */
+.content {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+  top: -150px;
+}
+
+/* Job Listings Container */
+.jobListings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between job cards */
+  justify-items: center; /* Center items in the grid */
+}
+
+/* Job Opportunities Header */
+.jobListings h2 {
+  font-size: 36px;
+  color: #333;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+/* Job Card Styles */
+.jobCard {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Responsive width */
+  max-width: 300px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-align: left;
+  border: 1px solid #ddd;
+  width: 80%;
+}
+
+/* Card-Specific Styles */
+.jobCard:nth-child(odd) {
+  background-color: #f9f9f9; /* Light gray background for odd cards */
+  border-left: 4px solid #007bff; /* Blue border for odd cards */
+}
+
+.jobCard:nth-child(even) {
+  background-color: #fff7e6; /* Light yellow background for even cards */
+  border-left: 4px solid #ff7f0e; /* Orange border for even cards */
+}
+
+/* Hover Effects for Job Cards */
+.jobCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Job Title and Number */
+.jobCard h3 {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.jobNumber {
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(253, 15, 15);
+  margin-bottom: 10px;
+}
+
+/* Job Details */
+.jobCard p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Apply Button */
+.applyButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Different Button Styles Based on Card Position */
+.jobCard:nth-child(odd) .applyButton {
+  background-color: #007bff; /* Blue for odd cards */
+}
+
+.jobCard:nth-child(even) .applyButton {
+  background-color: #ff7f0e; /* Orange for even cards */
+}
+
+.applyButton:hover {
+  transform: scale(1.05);
+}
+
+.jobCard:nth-child(odd) .applyButton:hover {
+  background-color: #0056b3; /* Darker blue on hover for odd cards */
+}
+
+.jobCard:nth-child(even) .applyButton:hover {
+  background-color: #cc5a0e; /* Darker orange on hover for even cards */
+}
+
+/* No Jobs Message */
+.noJobsMessage {
+  font-size: 18px;
+  color: #999;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .jobListings {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .jobCard {
+    padding: 15px;
+  }
+
+  .applyButton {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .jobListings h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .jobListings {
+    grid-template-columns: 1fr;
+  }
+
+  .jobCard {
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,254 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                     Int              @id @default(autoincrement())
+  userType               String           @map("user_type") // ENUM equivalent; map manually
+  name                   String
+  email                  String           @unique
+  password               String // Removed hashing reference
+  createdAt              DateTime         @default(now()) @map("created_at")
+  updatedAt              DateTime         @updatedAt @map("updated_at")
+  Sessions               Session[]
+  PasswordResets         PasswordReset[]
+  Jobs                   Job[]
+  Events                 Event[]
+  Profiles               Profile[]
+  CreatedMentorshipForms MentorshipForm[] @relation("CreatedForms")
+  SuccessStories         SuccessStory[]
+
+  MentorshipsAsMentor Mentorship[] @relation("MentorRelation")
+  MentorshipsAsMentee Mentorship[] @relation("MenteeRelation")
+
+  @@map("User")
+}
+
+model Session {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  sessionToken String   @unique
+  expiresAt    DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("Sessions")
+}
+
+model PasswordReset {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  resetToken String   @unique
+  expiresAt  DateTime
+  used       Boolean  @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("Password_Resets")
+}
+
+model Registration {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String // Removed hashing reference
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("Registrations")
+}
+
+model Profile {
+  id                      Int     @id @default(autoincrement())
+  userId                  Int     @unique // Add @unique here
+  academicBackground      String? @map("academic_background")
+  researchInterests       String? @map("research_interests")
+  collegeInfo             String? @map("college_info")
+  email                   String
+  password                String
+  profilePrivacy          String  @default("PUBLIC") @map("profile_privacy")
+  emailNotifications      String  @default("ENABLE") @map("email_notifications")
+  mobilePushNotifications String  @default("ENABLE") @map("mobile_push_notifications")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("Profile")
+}
+
+model Message {
+  id          Int      @id @default(autoincrement())
+  emailFrom   String
+  emailTo     String
+  Name   String
+  phoneNumber String?
+  message     String
+  createdAt   DateTime @default(now())
+}
+
+model GroupChat {
+  id         Int       @id @default(autoincrement())
+  userInitials String
+  message    String
+  reactions  Json?     @default("{}")  // Store emoji reactions as JSON
+  messageDate DateTime
+  messageTime DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  replies    Reply[]   @relation("MessageReplies")
+}
+
+model Reply {
+  id          Int       @id @default(autoincrement())
+  commentId   Int
+  groupChatId Int       // Add this line to define the foreign key
+  author      String
+  text        String
+  timestamp   DateTime  @default(now())
+
+  comment     Comment   @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  groupChat   GroupChat @relation("MessageReplies", fields: [groupChatId], references: [id], onDelete: Cascade)
+
+  @@map("replies")
+}
+
+
+
+model Job {
+  id           Int      @id @default(autoincrement())
+  title        String   @map("job_title")
+  jobType      String   @map("job_type")
+  location     String?
+  locationType String?
+  company      String
+  industry     String?
+  pay          Int?
+  postedBy     Int
+  postedDate   DateTime @default(now()) @map("posted_date")
+
+  poster User @relation(fields: [postedBy], references: [id])
+
+  @@map("Job")
+}
+
+model Event {
+  id                 Int                 @id @default(autoincrement())
+  name               String              @map("event_name")
+  description        String?
+  eventDate          DateTime            @map("event_date")
+  organizerId        Int
+  participationType  String?             @map("participation_type")
+  location           String?
+  eventRegistrations EventRegistration[] // Add this field
+  organizer          User                @relation(fields: [organizerId], references: [id])
+
+  @@map("Event")
+}
+
+model EventRegistration {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String
+  phoneNumber    String   @map("phone_number")
+  eventAttending Int
+  createdDate    DateTime @default(now()) @map("created_date")
+
+  event Event @relation(fields: [eventAttending], references: [id])
+
+  @@map("Event_Registration")
+}
+
+model MentorshipForm {
+  id          Int          @id @default(autoincrement())
+  name        String
+  email       String
+  message     String?
+  createdBy   Int
+  mentorships Mentorship[] // Add this field
+  creator     User         @relation("CreatedForms", fields: [createdBy], references: [id])
+
+  @@map("Mentorship_Form")
+}
+
+model Mentorship {
+  id             Int            @id @default(autoincrement())
+  mentorshipId   Int
+  mentorId       Int
+  menteeId       Int
+  startDate      DateTime       @map("start_date")
+  status         String         @map("status") // ENUM equivalent
+  mentorshipForm MentorshipForm @relation(fields: [mentorshipId], references: [id])
+
+  mentor User @relation("MentorRelation", fields: [mentorId], references: [id])
+  mentee User @relation("MenteeRelation", fields: [menteeId], references: [id])
+
+  @@map("Mentorship")
+}
+
+model SuccessStory {
+  id             Int     @id @default(autoincrement())
+  userId         Int
+  title          String?
+  description    String?
+  rating         String?
+  currentRole    String? @map("current_role")
+  currentCompany String? @map("current_company")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("SuccessStory")
+}
+
+model ContactUs {
+  id      Int    @id @default(autoincrement())
+  email   String
+  subject String
+  message String
+}
+
+model Topic {
+  id           Int       @id @default(autoincrement())
+  author       String
+  category     String
+  title        String
+  content      String
+  likes        Int       @default(0)
+  comments     Int       @default(0)
+  timestamp    DateTime  @default(now())
+  commentsList Comment[]
+
+  @@map("topics")
+}
+
+model Comment {
+  id          Int      @id @default(autoincrement())
+  topicId     Int
+  author      String
+  text        String
+  likes       Int      @default(0)
+  replies     Int      @default(0)
+  timestamp   DateTime @default(now())
+  repliesList Reply[]
+
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@map("comments")
+}
+
+
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+}

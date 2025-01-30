@@ -1,0 +1,62 @@
+@import url('../components/RootLayout.css');
+/* Privatemessages.module.css */
+
+.formContainer {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -150px;
+  left: -50px;
+}
+
+.form {
+  background-color: transparent;
+  padding: 30px;
+  border-radius: 8px;
+  width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: -300px;
+  left: 300px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  color: black;
+  
+  font-weight: bold;
+}
+
+
+input, 
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  background-color: #33ccff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;         /* Makes the button a block-level element */
+  margin: 0 auto;         /* Centers the button horizontally */
+}
+
+button:hover {
+  background-color: #29a3cc;
+}

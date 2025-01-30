@@ -1,0 +1,141 @@
+
+@import url('../components/RootLayout.css');
+  
+
+
+/* Career development section styling */
+.careerDevelopment {
+  padding: 20px;
+  background-color: transparent;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 500px;
+  place-items: center;
+  position: relative;
+  top: -240px;
+  left: 0px;
+}
+
+/* Grid layout for resources */
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Two equal columns */
+  gap: 50px; /* Space between the two columns */
+  margin-top: 0px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+/* Left and Right columns */
+.leftColumn, .rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 110%;
+  gap: 20px; /* Space between the sections in each column */
+}
+
+
+/* Section alignment */
+.resourceSection {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+ }
+
+/* Heading styles */
+h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.resourceSection h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 0px;
+  text-align: center;
+  position: relative;
+  left: -20px;
+  top: -10px;
+  width: 110%;
+}
+
+h3 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 0px;
+  text-align: center;
+  position: relative;
+  left: -10px;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Button styling */
+.resourceButton {
+  background-color: black;
+  color: black;
+  border: 2px solid #333;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  width: auto;
+  margin-top: 10px;
+  text-align: center;
+  overflow: visible;  /* Prevent text overflow */
+  white-space: nowrap; /* Keep text on a single line */
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.resourceButton:hover {
+  background-color: #f2f2f2;
+  color: black;
+  transform: translateY(-3px);
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 24px;
+  transition: transform 0.3s;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .resourcesGrid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2, h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .resourceButton {
+    width: 100%; /* Full-width buttons on small screens */
+    text-align: center;
+    padding: 15px;
+  }
+
+  .arrow {
+    display: none;
+  }
+}

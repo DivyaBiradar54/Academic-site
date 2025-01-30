@@ -1,0 +1,80 @@
+@import url('../components/RootLayout.css');
+  
+.registrationBox h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    left: -100px;
+    top: -150px;
+  }
+  
+.registrationBox form{
+  background-color: transparent;
+  width: 30%;
+  box-shadow: none;
+  position: relative;
+  top: -150px;
+  left: 330px;
+} 
+  .input-field {
+    margin-bottom: 15px;
+    width: 10%;
+    position: relative;
+    left: 500px;
+    top: -250px;
+    width: 150%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  
+  .input-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Gradient background for input fields */
+  .input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: linear-gradient(90deg, white, white); /* Gradient for input fields */
+    color: black; /* Text color for input */
+  }
+  
+  
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;   
+    position: relative;
+    top: -80px;
+    left: 500px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 40%;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(90deg, white, white); /* Gradient background for buttons */
+    color: black;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+  
+  .register-button {
+    flex: 1;
+    margin-left: 10px;
+    width: 30%;
+    left: -400px;
+  }
+  

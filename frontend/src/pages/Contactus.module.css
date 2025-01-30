@@ -1,0 +1,105 @@
+@import url('../components/RootLayout.css');
+.contactus {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px;
+    background-color: #f9f5f0; /* Light beige background */
+    position: relative;
+    top: -150px;
+    width: 85%;
+    left: 70px;
+}
+  
+  .contactDetails,
+  .contactForm,
+  .location {
+    flex: 1 1 calc(33.33% - 20px); /* Flexible column layout */
+    padding: 20px;
+    background-color: #fdf1dc; /* Light yellow background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left;
+  }
+  
+  .contactDetails h3,
+  .contactForm h3,
+  .location h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #d62300; /* Dark red color for headers */
+    text-align: center;
+  }
+  
+  .contactDetails p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #333; /* Dark gray text */
+  }
+  
+  .contactForm label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333; /* Dark gray text */
+  }
+  
+  .contactForm input,
+  .contactForm textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .contactForm button {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: #d62300; /* Dark red button */
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .contactForm button:hover {
+    background-color: #bb1f00; /* Darker red on hover */
+  }
+  
+  .successMessage,
+  .errorMessage {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: green;
+    text-align: center;
+  }
+  
+  .errorMessage {
+    color: red;
+  }
+  
+  .location iframe {
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .contactus {
+      flex-direction: column;
+    }
+  
+    .contactDetails,
+    .contactForm,
+    .location {
+      flex: 1 1 100%; /* Take full width for small screens */
+    }
+  }
+  

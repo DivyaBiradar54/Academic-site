@@ -1,0 +1,126 @@
+@import url('../components/RootLayout.css');
+
+.opportunitiesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  top: -50px; /* Adjust as needed */
+}
+
+.filters {
+  width: 60%;
+  position: relative;
+  top: -60px;
+  left: 50px;
+}
+
+/* General styling for the range filter container */
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+  margin-bottom: 0px;
+}
+
+.filter h4 {
+  font-weight: bold;
+  margin-bottom: 0px;
+  position: relative;
+  top: -80px;
+}
+.filter label {
+  display: block;
+  font-weight: lighter;
+  margin-bottom: -25px;
+  position: relative;
+  top: -100px;
+  left: 0px;
+  width: 20%;
+}
+
+.filter pay {
+  display: block;
+  margin-bottom: -10px;
+  position: relative;
+  top: -65px;
+  font-weight: bold;
+}
+input[type="checkbox"] {
+  margin-right: 0px;
+  position: relative;
+  top: 36px;
+  left: 80px;
+}
+
+select,
+input[type="range"] {
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.payRange {
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  top: -50px;
+}
+
+.payLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+  margin-left: 0px;
+  margin-right: 300px;
+  position: relative;
+  top: -100px;
+}
+
+.jobListing {
+  width: 60%;
+  margin-left: 0px;
+  text-align: center;
+  position: relative;
+  left: -270px;
+  top: -50px;
+}
+
+.jobListing h2 {
+  font-size: 2em;
+  color: #333;
+  position: relative;
+  top: 10px;
+  left: 0px;
+}
+
+.searchButton {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #ececec;
+  color: #000501;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.searchButton:hover {
+  background-color: #d3d3d3;
+}
+
+.description {
+  font-size: 1em;
+  color: #666;
+  margin-top: 10px;
+  text-align: justify;
+}
